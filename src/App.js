@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import CourseManagement from './components/CourseManagement';
+import StudentManagement from './components/StudentManagement';
+import RegistrationManagement from './components/RegistrationManagement';
+import ResultsManagement from './components/ResultsManagement';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('courses');
+
+  const renderActiveComponent = () => {
+    switch(activeTab) {
+      case 'courses':
+        return <CourseManagement />;
+      case 'students':
+        return <StudentManagement />;
+      case 'registrations':
+        return <RegistrationManagement />;
+      case 'results':
+        return <ResultsManagement />;
+      default:
+        return <CourseManagement />;
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <div className="main-content">
+        <div className="container">
+          {renderActiveComponent()}
+        </div>
+      </div>
     </div>
   );
 }
