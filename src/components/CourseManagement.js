@@ -72,7 +72,7 @@ const EnhancedCourseManagement = () => {
   const fetchCourses = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/api/courses');
+      const response = await fetch('https://course-mng-backend-production.up.railway.app/api/courses');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -98,8 +98,8 @@ const EnhancedCourseManagement = () => {
 
     try {
       const url = editingCourse 
-        ? `http://localhost:8080/api/courses/${editingCourse.id}`
-        : 'http://localhost:8080/api/courses';
+        ? `https://course-mng-backend-production.up.railway.app/api/courses/${editingCourse.id}`
+        : 'https://course-mng-backend-production.up.railway.app/api/courses';
       
       const method = editingCourse ? 'PUT' : 'POST';
       
@@ -161,7 +161,7 @@ const EnhancedCourseManagement = () => {
 
     if (confirmed) {
       try {
-        const response = await fetch(`http://localhost:8080/api/courses/${course.id}`, {
+        const response = await fetch(`https://course-mng-backend-production.up.railway.app/api/courses/${course.id}`, {
           method: 'DELETE',
         });
 
