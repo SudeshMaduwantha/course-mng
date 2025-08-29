@@ -92,7 +92,7 @@ const EnhancedStudentManagement = () => {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/api/students');
+      const response = await fetch('course-mng-backend-production.up.railway.app/api/students');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
