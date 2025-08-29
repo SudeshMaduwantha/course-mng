@@ -87,9 +87,9 @@ const EnhancedRegistrationManagement = () => {
     try {
       setLoading(true);
       const [regResponse, studResponse, courseResponse] = await Promise.all([
-        fetch('http://localhost:8080/api/registrations'),
-        fetch('http://localhost:8080/api/students'),
-        fetch('http://localhost:8080/api/courses')
+        fetch('course-mng-backend-production.up.railway.app/api/registrations'),
+        fetch('course-mng-backend-production.up.railway.app/api/students'),
+        fetch('course-mng-backend-production.up.railway.app/api/courses')
       ]);
 
       if (!regResponse.ok || !studResponse.ok || !courseResponse.ok) {
