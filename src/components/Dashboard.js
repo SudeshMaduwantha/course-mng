@@ -32,10 +32,11 @@ const EnhancedDashboard = ({ onNavigate }) => {
 
       // Fetch all data concurrently
       const [studentsRes, coursesRes, registrationsRes] = await Promise.all([
-        fetch('course-mng-backend-production.up.railway.app/api/students'),
-        fetch('course-mng-backend-production.up.railway.app/api/courses'),
-        fetch('course-mng-backend-production.up.railway.app/api/registrations')
-      ]);
+  fetch('https://course-mng-backend-production.up.railway.app/api/students'),
+  fetch('https://course-mng-backend-production.up.railway.app/api/courses'),
+  fetch('https://course-mng-backend-production.up.railway.app/api/registrations')
+]);
+
 
       if (!studentsRes.ok || !coursesRes.ok || !registrationsRes.ok) {
         throw new Error('Failed to fetch dashboard data');
