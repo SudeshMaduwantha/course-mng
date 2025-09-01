@@ -72,7 +72,7 @@ const EnhancedCourseManagement = () => {
   const fetchCourses = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/api/courses');
+      const response = await fetch(`${API_BASE_URL}/api/courses`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -161,7 +161,7 @@ const EnhancedCourseManagement = () => {
 
     if (confirmed) {
       try {
-        const response = await fetch(`http://localhost:8080/api/courses/${course.id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/courses/${course.id}`, {
           method: 'DELETE',
         });
 

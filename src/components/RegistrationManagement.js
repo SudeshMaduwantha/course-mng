@@ -87,9 +87,9 @@ const EnhancedRegistrationManagement = () => {
     try {
       setLoading(true);
       const [regResponse, studResponse, courseResponse] = await Promise.all([
-        fetch('http://localhost:8080/api/registrations'),
-        fetch('http://localhost:8080/api/students'),
-        fetch('http://localhost:8080/api/courses')
+        fetch(`${API_BASE_URL}/api/registrations`),
+        fetch(`${API_BASE_URL}/api/students`),
+        fetch(`${API_BASE_URL}/api/courses`)
       ]);
 
       if (!regResponse.ok || !studResponse.ok || !courseResponse.ok) {
@@ -135,7 +135,7 @@ const EnhancedRegistrationManagement = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/api/registrations/enroll', {
+      const response = await fetch(`${API_BASE_URL}/api/registrations/enroll`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -178,7 +178,7 @@ const EnhancedRegistrationManagement = () => {
 
     if (confirmed) {
       try {
-        const response = await fetch(`http://localhost:8080/api/registrations/${registration.id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/registrations/${registration.id}`, {
           method: 'DELETE',
         });
 

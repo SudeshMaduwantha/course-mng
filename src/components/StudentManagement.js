@@ -92,7 +92,7 @@ const EnhancedStudentManagement = () => {
   const fetchStudents = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/api/students');
+      const response = await fetch(`${API_BASE_URL}/api/students`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -226,7 +226,7 @@ const EnhancedStudentManagement = () => {
 
     if (confirmed) {
       try {
-        const response = await fetch(`http://localhost:8080/api/students/${student.id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/students/${student.id}`, {
           method: 'DELETE',
         });
 

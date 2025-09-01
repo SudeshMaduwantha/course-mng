@@ -89,9 +89,9 @@ const EnhancedResultsManagement = () => {
     try {
       setLoading(true);
       const [regResponse, studResponse, courseResponse] = await Promise.all([
-        fetch('http://localhost:8080/api/registrations'),
-        fetch('http://localhost:8080/api/students'),
-        fetch('http://localhost:8080/api/courses')
+        fetch(`${API_BASE_URL}/api/registrations`),
+        fetch(`${API_BASE_URL}/api/students`),
+        fetch(`${API_BASE_URL}/api/courses`)
       ]);
 
       if (!regResponse.ok || !studResponse.ok || !courseResponse.ok) {
@@ -135,7 +135,7 @@ const EnhancedResultsManagement = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/api/registrations/${selectedRegistration.id}/grade`, {
+      const response = await fetch(`${API_BASE_URL}/api/registrations/${selectedRegistration.id}/grade`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const EnhancedResultsManagement = () => {
 
   const handleViewTranscript = async (studentId) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/registrations/transcript/${studentId}`);
+      const response = await fetch(`${API_BASE_URL}/api/registrations/transcript/${studentId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch transcript');
       }
@@ -182,7 +182,7 @@ const EnhancedResultsManagement = () => {
 
   const handleViewCourseReport = async (courseId) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/registrations/course-report/${courseId}`);
+      const response = await fetch(`${API_BASE_URL}/api/registrations/course-report/${courseId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch course report');
       }
