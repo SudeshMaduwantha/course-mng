@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNotification } from './NotificationSystem';
 import { useTheme } from './ThemeProvider';
-import {API_BASE_URL} from '../../.env';
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 const EnhancedDashboard = ({ onNavigate }) => {
   const [stats, setStats] = useState({
     totalStudents: 0,

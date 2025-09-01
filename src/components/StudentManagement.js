@@ -5,7 +5,8 @@ import { useAdvancedSearch, AdvancedSearchBar, FilterPanel, SortableHeader, Sear
 import { useConfirm } from './NotificationSystem';
 import { useTheme } from './ThemeProvider';
 import { useAuth } from './AuthContext';
-import {API_BASE_URL} from '../../.env';
+
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
 const EnhancedStudentManagement = () => {
   const [students, setStudents] = useState([]);
