@@ -5,6 +5,7 @@ import { useAdvancedSearch, AdvancedSearchBar, FilterPanel, SortableHeader, Sear
 import { useConfirm } from './NotificationSystem';
 import { useTheme } from './ThemeProvider';
 import { useAuth } from './AuthContext';
+import {API_BASE_URL} from '../../.env';
 
 const EnhancedResultsManagement = () => {
   const [registrations, setRegistrations] = useState([]);
